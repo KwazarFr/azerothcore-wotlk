@@ -928,10 +928,10 @@ DumpReturn PlayerDumpReader::LoadDump(std::istream& input, uint32 account, std::
 
                 name = GetColumn(ts, line, "name").substr(0, maxCharsFromOriginalName) + guidPart;
 
-                // characters.at_login set to "rename on login"
+                // characters.at_login set to "change race on login"
                 if (!ChangeColumn(ts, line, "name", name))
                     return DUMP_FILE_BROKEN;
-                if (!ChangeColumn(ts, line, "at_login", "1"))
+                if (!ChangeColumn(ts, line, "at_login", "128"))
                     return DUMP_FILE_BROKEN;
             }
             else if (!ChangeColumn(ts, line, "name", name)) // characters.name
